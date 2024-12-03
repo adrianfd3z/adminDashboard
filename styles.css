@@ -1,0 +1,238 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  height: 100vh;
+}
+
+/* Dashboard Grid Layout */
+.dashboard {
+  display: grid;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  grid-area: sidebar;
+  background-color: #0078d4;
+  color: white;
+  padding: 20px;
+}
+
+.branding {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.nav-links ul {
+  list-style: none;
+}
+
+.nav-links li {
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.nav-links li:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: #f3f4f6;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  filter: brightness(0);
+  opacity: 0.8;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+  font-size: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.header-buttons button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.header-buttons button:hover {
+  background-color: #005a9e;
+}
+
+/* Main Content */
+.main-content {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 0;
+  padding: 0; /* Sin separación */
+  background-color: #f9f9f9;
+}
+
+/* Projects */
+.projects, .announcements, .trending {
+  background: #B7C9E2;
+  padding: 20px;
+  border-radius: 0; /* Sin bordes adicionales */
+}
+
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.project-card {
+  background: #f3f4f6;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px; /* Barra amarilla */
+  height: 100%;
+  background-color: #ffc107; /* Color amarillo */
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.project-card h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.project-card p {
+  font-size: 0.875rem;
+  color: #555; /* Lighter black */
+  line-height: 1.4;
+}
+
+/* Announcements */
+.announcement-card {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 4px;
+}
+
+.announcement-card:hover {
+  background-color: #e6e6e6;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.announcement-card h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.announcement-card p {
+  font-size: 0.875rem;
+  color: #555; /* Lighter black */
+  line-height: 1.4;
+}
+
+/* Trending */
+.trending-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #f9f9f9;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 4px;
+}
+
+.trending-card:hover {
+  background-color: #e6e6e6;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.trending-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+.trending-card h4 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.trending-card p {
+  font-size: 0.875rem;
+  color: #555;
+}
+
+/* Right Side */
+.right-side {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 0; /* Sin separación */
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+}
